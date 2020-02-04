@@ -8,7 +8,7 @@ class MyFloat{
 	int exp = 0;
 	int mant = 0;
 	MyFloat(string rawBin){
-
+		
 		for(int i = 31; i>=0; i--){
 			floatArray[i] = ((int)rawBin[i]) - 48;
 		}
@@ -20,6 +20,9 @@ class MyFloat{
 				exp = exp + pow(2, (9-i));
 			}
 		}
+
+		exp = exp - 127;
+
 		for(int i = 9; i<32; i++){
 			if(floatArray[i] == 1){
 				mant = mant + pow(2, (32-i));
@@ -38,7 +41,7 @@ double binToDec(MyFloat tempFloat){
 };
 
 int main(){
-	string testFloat = "11001000001111001111000001011010";
+	string testFloat = "10001000001111001111000001011010";
 	MyFloat myTestFloat(testFloat);
 	
 	double val = binToDec(myTestFloat);
