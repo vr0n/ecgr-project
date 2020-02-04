@@ -46,5 +46,6 @@ int main(){
 	
 	double val = binToDec(myTestFloat);
 	cout << val << endl;
+
 	return 0;
 }
