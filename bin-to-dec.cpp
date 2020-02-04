@@ -88,18 +88,58 @@ float getFloat( string Binary )
         return 1.0;
     }
 
+    int i;
+    int expAll = 0;
+    int manAll = 0;
     int Sign = (int) Binary[0] - 48; //Get the Sign bit
+    int test;
+
+    for (i = 1; i < 9; i++) {
+        test = (int) Binary[i] - 48;
+
+        if ( test == 1 ) {
+            expAll++;
+        }
+    }
+
+    for ( i = 9; i < 33; i++ ) {
+        test = (int) Binary[i] - 48;
+
+        if ( test == 1 ) {
+            manAll++;
+        }
+    }
+
+    if ( ( expAll + manAll ) == 31 ) {
+        cout << "NaN" << endl;
+        return 1.0;
+    }
+    else if ( expAll == 8 && manAll == 0 ) {
+        if ( Sign == 0 ) {
+            cout << "Infinity" << endl;
+            return 1.0;
+        }
+        else {
+            cout << "-Infinity" << endl;
+            return 1.0;
+        }
+    }
+
     string Exponent = Binary.substr(1, 8); //Get the value for exponent
     string Mantissa = Binary.substr(9, 32); //Get the mantissa bits.
 
     float dec = convertExp( Exponent ); //send off for processing
     float frac = convertMan( Mantissa ); //send off for processing
 
-    float ans = dec + frac; //We should not have numbers we can add
+    frac += 1;
+
+    float ans = dec * frac; //We should not have numbers we can add
 
     if ( Sign == 1 ) { //if we have a negative number, make a negative number
         ans = ans * -1.0;
     }
+    
+    cout << ans << endl; 
 
     return ans;
 }
@@ -111,11 +151,9 @@ float getFloat( string Binary )
 int main()
 {
     string f; //start with a C++ string.
-    f = "01000000110000010000100100000001"; //test value, actual function is dynamic
+    f = "11111111111111111111111111111111"; //test value, actual function is dynamic
 //    cin >> f; //this is here for the dynamic part i was talking about
-    float ans = getFloat( f ); //send off for processing
+    getFloat( f ); //send off for processing
     
-    cout << ans << endl; //print for testing
-
     return 0;
 }
