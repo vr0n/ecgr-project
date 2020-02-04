@@ -8,7 +8,7 @@ class MyFloat{
 	int exp = 0;
 	int mant = 0;
 	MyFloat(string rawBin){
-		
+		//THIS IS A REVISION TEST
 		for(int i = 31; i>=0; i--){
 			floatArray[i] = ((int)rawBin[i]) - 48;
 		}
