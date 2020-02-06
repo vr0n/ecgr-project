@@ -396,7 +396,24 @@ vector<int> guidedConversion() {
         }
         
         cout << endl;
-        cout << "Base-10 decimal representation: " << fpToDec(signBit, exponentSum, mantissaMultiplier) << endl << endl;
+        cout << "Base-10 decimal representation: ";
+        
+        if(exponentSum == 128) {
+            if(mantissaMultiplier == 1) {
+                if(signBit == 0) {
+                    cout << "Infinity" << endl << endl;
+                }
+                else {
+                    cout << "-Infinity" << endl << endl;
+                }
+            }
+            else {
+                cout << "NaN" << endl << endl;
+            }
+        }
+        else {
+            cout << fpToDec(signBit, exponentSum, mantissaMultiplier) << endl << endl;
+        }
     }
     
     return IEEE754;
