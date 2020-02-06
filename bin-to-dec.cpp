@@ -110,8 +110,12 @@ float getFloat( string Binary )
         }
     }
 
-    if ( ( expAll + manAll ) == 31 ) {
+    if ( expAll == 8 && manAll > 0 ) {
         cout << "NaN" << endl;
+        return 1.0;
+    }
+    else if ( ( expAll + manAll ) == 0 ) {
+        cout << "0.0" << endl;
         return 1.0;
     }
     else if ( expAll == 8 && manAll == 0 ) {
@@ -151,8 +155,8 @@ float getFloat( string Binary )
 int main()
 {
     string f; //start with a C++ string.
-    f = "11111111111111111111111111111111"; //test value, actual function is dynamic
-//    cin >> f; //this is here for the dynamic part i was talking about
+    cin >> f; //this is here for the dynamic part i was talking about
+    
     getFloat( f ); //send off for processing
     
     return 0;
