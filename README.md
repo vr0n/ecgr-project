@@ -10,7 +10,7 @@
 - For Checkpoint 0, bin-to-dec.cpp does the conversion from binary to dec, and main.cpp does decimal to binary
 - main.cpp will house both functions by next Checkpoint, which is why it offers that in the menu
 - Screenshot of bin-to-dec.cpp working
-  - ![bin-to-dec](https://i.imgur.com/NtqO7fX.png)
+  - ![bin-to-dec](https://i.imgur.com/NtqO7fX.png =100x20)
 - Screenshot of main.cpp working
-  - ![main](https://imgur.com/EHIRMkiZ.png)
+  - ![main](https://i.imgur.com/EHIRMkZ.png =100x20)
 
