@@ -35,8 +35,6 @@ class MyFloat{
 double binToDec(MyFloat tempFloat){
 	double dec = 0.0;
 	
-	cout << "Exponent: " << tempFloat.exponent << "   Mantissa: " << tempFloat.mant << endl;
-	
 	dec = pow(2, tempFloat.exponent) * (1 + tempFloat.mant);
 	if(tempFloat.sign){
 		dec = -dec;
