@@ -66,7 +66,7 @@ string specialCaseCheck(MyFloat tempFloat){
 };
 
 int main(){
-	string testFloat = "11111111100000001000000000000000";
+	string testFloat = "11111111100000001000000000000000"; 
 	MyFloat myTestFloat(testFloat);
 	string specialCaseOutput = specialCaseCheck(myTestFloat);
 	
