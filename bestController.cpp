@@ -124,7 +124,8 @@ string decToBin(double tempDec){
 }
 
 int main(){
-	decToBin(6.345);
+    decToBin(8.345);
+   
 
 	return 0;
 }
