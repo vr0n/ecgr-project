@@ -1,0 +1,12 @@
+-- with this, we shall test
+-- the goal here is to test as many functions as possible without being too crazy
+
+
+set R1, #45.64
+set R2, #-3.02
+
+fadd R3, R1, R2
+
+set R4, #10.0
+
+fmul R5, R4, R3
