@@ -5,7 +5,10 @@
 - [x] Integrate working functions into one file
 - [ ] Start on ISA
 
-### Checkpoint 0
+### Milestone 0
 #### Converting from real decimal (base 10) to 32 bit, floating point binary (base 2)
 - For Checkpoint 0, bestController.cpp does both conversion.
-- An example is included in the source code for decimal to binary, though others can be added and shown
+- Currently, bestController.cpp takes manual entries for example purposes. This will, of course be changed when necessary to take actual input.
+
+### Milestone 1
+#### Creating the instruction functions and documenting the ISA

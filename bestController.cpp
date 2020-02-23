@@ -2,6 +2,7 @@
 #include <cmath>
 #include <bits/stdc++.h>
 using namespace std;
+
 class MyFloat{
 	public:
 	int sign = 0;
@@ -56,7 +57,7 @@ double binToDec(MyFloat tempFloat){
 			}
 		}
 		else{
-			cout << "NA-NA-NA-NA-NA-NA-NA-NA-BATMAN!" << endl;
+			cout << "NaN" << endl;
 			return 42;
 		}
 		  
@@ -66,10 +67,12 @@ double binToDec(MyFloat tempFloat){
 	if(tempFloat.sign==1){
 		dec = -dec;
 	}
-	//print for testing purposes
-	cout << tempFloat.sign << endl;
-	cout << tempFloat.exp << endl;
-	cout << tempFloat.mant << endl;
+
+	//print statements for testing
+    //commenting out for now
+	//cout << tempFloat.sign << endl;
+	//cout << tempFloat.exp << endl;
+	//cout << tempFloat.mant << endl;
 
 	cout << dec  << endl;
 	return dec;
@@ -93,13 +96,13 @@ string decToBin(double tempDec){
 		return "Positive Infinity";
 	}
 	
-//sign binary	
+    //sign binary	
 	if(tempDec<0){	
 	signBin = "1";
 		tempDec = abs(tempDec);
 	}
 	
-//mantissa binary
+    //mantissa binary
 	bool foundFirstOne = false;
 	int loopNum = 0;
 	int startingIndex = -1;
@@ -185,6 +188,7 @@ string decToBin(double tempDec){
 
 int main(){
     decToBin(8.345);
+    binToDec((MyFloat) "01101101101100000011000011010111");
 
 	return 0;
 }
