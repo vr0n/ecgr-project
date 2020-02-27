@@ -1,0 +1,13 @@
+-- comment #1
+-- comment don't mess up the program
+-- comment what are you doing?
+6
+Set R0, #4.75
+Set R1, #3.21
+Fadd R2, R0, R1
+Set R3, #0
+Store R3, R2
+Halt
+2
+<6><100> --another comment that shouldn't mess things up
+<3><9>
