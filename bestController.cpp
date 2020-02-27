@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include <bits/stdc++.h>
+#include "operate.h"
+
 using namespace std;
 
 class MyFloat{
@@ -189,6 +191,7 @@ string decToBin(double tempDec){
 int main(){
     decToBin(8.345);
     binToDec((MyFloat) "01101101101100000011000011010111");
+    operate("00100");
 
 	return 0;
 }
