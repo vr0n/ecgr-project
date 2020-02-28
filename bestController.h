@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cmath>
 #include <bits/stdc++.h>
-#include "operate.h"
 
 using namespace std;
 
@@ -41,6 +40,7 @@ class MyFloat{
 };
 
 double binToDec(MyFloat tempFloat){
+    cout << "you made it" << endl;
 	double dec = 0.0;
 	//check for zero
 	if(tempFloat.exp==0){
@@ -186,12 +186,4 @@ string decToBin(double tempDec){
 	cout << "M: " + mantBin << endl;
 	cout << endl;
 	return (signBin + expBin + mantBin);
-}
-
-int main(){
-    decToBin(8.345);
-    binToDec((MyFloat) "01101101101100000011000011010111");
-    operate("01101101101100000011000011010111");
-
-	return 0;
 }
