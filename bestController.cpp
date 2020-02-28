@@ -191,7 +191,7 @@ string decToBin(double tempDec){
 int main(){
     decToBin(8.345);
     binToDec((MyFloat) "01101101101100000011000011010111");
-    operate("00100");
+    operate("01101101101100000011000011010111");
 
 	return 0;
 }

@@ -1,9 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <cmath>
-#include <bits/stdc++.h>
-
 using namespace std;
 
 /*
@@ -12,74 +6,102 @@ using namespace std;
 */
 void operate(string op){
     string oppCode = op.substr(0, 5);
+    string r1 = op.substr(5, 4);
+    string r2 = op.substr(9, 4);
+    string r3 = op.substr(13, 4);
+    string num = op.substr(17, 15); 
+
     //giant else if statement, lol
-    if ( op == "00000" ) { 
-        cout << "Got Set" << endl;
+    // Set instruction
+    if ( oppCode == "00000" ) { 
+        //registerFile[r1] = num
 	}
-    else if ( op == "00001" ) { 
-        cout << "Got Load" << endl;
+    // Load instruction
+    else if ( oppCode == "00001" ) { 
+        //registerFile[r1] = memoryFile[r2]
 	}
-    else if ( op == "00010" ) { 
-        cout << "Got Store" << endl;
+    // Store instruction
+    else if ( oppCode == "00010" ) { 
+        //memoryFile[r1] = registerFile[r2]
 	}
-    else if ( op == "00011" ) { 
-        cout << "Got Move" << endl;
+    // Move instruction
+    else if ( oppCode == "00011" ) { 
+        //registerFile[r1] = registerFile[r2]
 	}
-    else if ( op == "00100" ) { 
-        cout << "Got Fadd" << endl;
+    // Fadd instruction
+    else if ( oppCode == "00100" ) { 
+        //registerFile[r1] = registerFile[r2] + registerFile[r3]
 	}
-    else if ( op == "00101" ) { 
-        cout << "Got Fsub" << endl;
+    // Fsub instruction
+    else if ( oppCode == "00101" ) { 
+        //registerFile[r1] = registerFile[r2] - registerFile[r3]
 	}
-    else if ( op == "00110" ) { 
-        cout << "Got Fneg" << endl;
+    // Fneg instruction
+    else if ( oppCode == "00110" ) { 
+        //registerFile[r1] = ( registerFile[r2] * -1 )
 	}
-    else if ( op == "00111" ) { 
-        cout << "Got Fmul" << endl;
+    // Fmul instruction
+    else if ( oppCode == "00111" ) { 
+        //registerFile[r1] = registerFile[r2] * registerFile[r3]
 	}
-    else if ( op == "01000" ) { 
-        cout << "Got Fdiv" << endl;
+    // Fdiv instruction
+    else if ( oppCode == "01000" ) { 
+        //registerFile[r1] = registerFile[r2] / registerFile[r3]
 	}
-    else if ( op == "01001" ) { 
-        cout << "Got Floor" << endl;
+    // Floor instruction
+    else if ( oppCode == "01001" ) { 
+
 	}
-    else if ( op == "01010" ) { 
-        cout << "Got Ceil" << endl;
+    // Ceil instruction
+    else if ( oppCode == "01010" ) { 
+
 	}
-    else if ( op == "01011" ) { 
-        cout << "Got Round" << endl;
+    // Round instruction
+    else if ( oppCode == "01011" ) { 
+
 	}
-    else if ( op == "01100" ) { 
-        cout << "Got Fabs" << endl;
+    // Fabs instruction
+    else if ( oppCode == "01100" ) { 
+
 	}
-    else if ( op == "01101" ) { 
-        cout << "Got Min" << endl;
+    // Min instruction
+    else if ( oppCode == "01101" ) { 
+
 	}
-    else if ( op == "01110" ) { 
-        cout << "Got Max" << endl;
+    // Max instruction
+    else if ( oppCode == "01110" ) { 
+
 	}
-    else if ( op == "01111" ) { 
-        cout << "Got Pow" << endl;
+    // Pow instruction
+    else if ( oppCode == "01111" ) { 
+
 	}
-    else if ( op == "10000" ) {
-        cout << "Got Exp" << endl;
+    // Exp instruction
+    else if ( oppCode == "10000" ) {
+
 	}
-    else if ( op == "10001") { 
-        cout << "Got Sqrt" << endl;
+    // Sqrt instruction
+    else if ( oppCode == "10001") { 
+
 	}
-    else if ( op == "10010" ) {
-        cout << "Got B" << endl;
+    // B instruction
+    else if ( oppCode == "10010" ) {
+
 	}
-    else if ( op == "10011" ) {
-        cout << "Got BZ" << endl;
+    // BZ instruction
+    else if ( oppCode == "10011" ) {
+
 	}
-    else if ( op == "10100" ) {
-        cout << "Got BN" << endl;
+    // BN instruction
+    else if ( oppCode == "10100" ) {
+
     }
-    else if ( op == "10101" ) {
-        cout << "Got Nop" << endl;
+    // Nop instruction
+    else if ( oppCode == "10101" ) {
+
     }
-    else if ( op == "10110" ) {
-        cout << "Got Halt" << endl;
+    // Halt instruction
+    else if ( oppCode == "10110" ) {
+
     }
 }
