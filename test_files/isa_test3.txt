@@ -1,0 +1,8 @@
+6
+Set R0, #3.141592	--Sets register equal to pi to 6 decimal places
+Set R1, #22		--Sets register equal to 22
+Set R2, #7		--Sets register equal to 7
+Fdiv R1, R1, R2		--Divide 22 by 7, store result in register 1
+Min R3, R0, R1		--Determine which value is the minimum
+Halt
+0			--No memory access
