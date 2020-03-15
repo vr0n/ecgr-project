@@ -21,7 +21,7 @@ int main(){
         }
 
         if ( i > 16 ) {
-            cout << "We caonly have 16 registers!" << endl;
+            cout << "We only have 16 registers!" << endl;
 
             return 1;
         }
