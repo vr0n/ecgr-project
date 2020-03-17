@@ -4,7 +4,6 @@ using namespace std;
   Take a 32-bit string and calculate based on
   our ISA documentation.
 */
-string registerFile[16] = { "000100010100010001010001001000100","010100010001110001100101000100010","010010011000100001000010000101100","010010010010010010010001000100100","010001000100010000100010001001000","010001000100010010001000100100100","100010001000100010101010101001000","011010010101000111100111100001000","001010010100100100100100101101000","100100100100100100010010010010100","001010010100100100100100101000100","011010001010010001000100000000000","000000000000000000000000000000000","000000000000000000000000000000000","000000000000000000000000000000000","000000000000000000000000000000000" };
 
 int convBin( string op ) {
     int i; // for loop iterator
@@ -22,7 +21,13 @@ int convBin( string op ) {
     return dec;
 }
 
-void operate(string op){
+void operate(string op, string registerFile[], string memoryFile[]){
+    //ifstream registerFile ("registerFile");
+    //ifstream memoryFile ("memoryFile");
+
+    cout << "operate: Entered operate function" << endl;
+    cout << "operate: Files seeme to have opened correctly" << endl;
+
     string oppCode = op.substr(0, 5);
     string r1 = op.substr(5, 4);
     string r2 = op.substr(9, 4);
@@ -55,8 +60,10 @@ void operate(string op){
         int newR2 = convBin( r2 );
         int newR3 = convBin( r3 );
 
-        double val1 = binToDec( (MyFloat) registerFile[newR2] );        
-        double val2 = binToDec( (MyFloat) registerFile[newR3] );        
+        //double val1 = binToDec( (MyFloat) newR2 );        
+        //double val2 = binToDec( (MyFloat) newR3 );        
+        double val1 = binToDec( newR2 );        
+        double val2 = binToDec( newR3 );        
         double ans = val1 + val2;
 
         string val = decToBin( ans );
@@ -280,6 +287,9 @@ void operate(string op){
     // Halt instruction
     else if ( oppCode == "10110" ) {
         cout << "exiting..." << endl;
+
         return;
     }
+
+    return;
 }

@@ -1,3 +1,10 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <cmath>
+#include <bits/stdc++.h>
+
+#include "numConversions.h"
 using namespace std;
 
 
@@ -20,8 +27,6 @@ string addZeros(int numZeros){
 
 //combine into instruction depending on which instruction it is
 string oppToCode(string opp, string second, string third, string fourth){
-    cout << "execute: Entering oppToCode function. Fun times!" << endl;
-
 	string translated = "";
 	if(opp == "Set"){
 		translated = "00000";
@@ -162,40 +167,5 @@ string oppToCode(string opp, string second, string third, string fourth){
 		translated = "10110";
 		translated += addZeros(4+4+4+15);
 	}
-    else {
-        cout << "execute: No oppCode found!" << endl;
-        cout << "execute: Exiting and Continuing!" << endl;
-
-        return translated;
-    }
-
-    cout << "execute: oppToCode is returning '" + translated + "'" << endl;
 	return translated;
-}
-
-string execute( string line ) {
-    string arr[4] = { "", "", "", "" };
-
-    istringstream iss(line);
-
-    int i = 0;
-    for( string line; iss >> line; ){
-        cout << "execute: Grabbing words from line" << endl;
-        
-        if( line[0] == '-' ) {
-            continue;
-        }
-
-        arr[i] = line;
-        i++;
-    }
-    
-    string var1 = arr[0];
-    string var2 = arr[1];
-    string var3 = arr[2];
-    string var4 = arr[3];
-
-    string binVal = oppToCode(var1, var2, var3, var4);
-
-    return binVal;
 }

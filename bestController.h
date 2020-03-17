@@ -40,7 +40,6 @@ class MyFloat{
 };
 
 double binToDec(MyFloat tempFloat){
-    cout << "you made it" << endl;
 	double dec = 0.0;
 	//check for zero
 	if(tempFloat.exp==0){
@@ -50,11 +49,11 @@ double binToDec(MyFloat tempFloat){
 	if(tempFloat.exp==255){
 		if(tempFloat.mant==0){
 			if(tempFloat.sign==0){
-				cout << "Positive Infinity" <<endl;
+				cout << "Positive_Infinity" <<endl;
 				return 1337;
 			}
 			else{
-				cout << "Negative Infinity" << endl;
+				cout << "Negative_Infinity" << endl;
 				return 1337;
 			}
 		}
@@ -69,14 +68,6 @@ double binToDec(MyFloat tempFloat){
 	if(tempFloat.sign==1){
 		dec = -dec;
 	}
-
-	//print statements for testing
-    //commenting out for now
-	//cout << tempFloat.sign << endl;
-	//cout << tempFloat.exp << endl;
-	//cout << tempFloat.mant << endl;
-
-	cout << dec  << endl;
 	return dec;
 };
 
@@ -91,20 +82,20 @@ string decToBin(double tempDec){
 	}
 	//check for -inf
 	if(tempDec<(pow(2, -126))){
-		return "Negative Infinity";
+		return "Negative_Infinity";
 	}
 	//check for +inf
 	if(tempDec>((pow(2, 127))*2)){
-		return "Positive Infinity";
+		return "Positive_Infinity";
 	}
 	
-    //sign binary	
+//sign binary	
 	if(tempDec<0){	
 	signBin = "1";
 		tempDec = abs(tempDec);
 	}
 	
-    //mantissa binary
+//mantissa binary
 	bool foundFirstOne = false;
 	int loopNum = 0;
 	int startingIndex = -1;
@@ -180,10 +171,81 @@ string decToBin(double tempDec){
 			expBin = expBin + "0";
 		}
 	}
-	//print for testing purposes
-	cout << "S: " + signBin << endl;
-	cout << "E: " + expBin << endl;
-	cout << "M: " + mantBin << endl;
-	cout << endl;
 	return (signBin + expBin + mantBin);
+}
+
+string stripUnwantedChars(string rawString){
+	string pureString = "";
+	//gets rid of chars in string that are not "." or "-" or numeric
+	for(int i = 0; i<rawString.length(); i++){
+		if(((int)rawString[i] == 45)||
+		((int)rawString[i] == 46)||
+		(((int)rawString[i] > 47)&&((int)rawString[i] < 58))){
+			pureString = pureString + rawString[i];
+		}
+	}
+	return pureString;
+}
+
+double stringToDouble(string rawString){
+	rawString = stripUnwantedChars(rawString);
+	double decodedDouble = 0.0;
+	bool isNegative = false;
+	int temp = 0;
+
+	//find and convert floating point portion
+	for(int i=0; i<rawString.length(); i++){
+		if((int)rawString[i]==46){
+			//split string if floating point
+			string floatString = rawString.substr(i+1);
+			rawString = rawString.substr(0, i);
+			for(int x = 0; x < floatString.length(); x++){
+				temp = (int)floatString[x] - 48;
+				decodedDouble = decodedDouble + (temp * pow(.1, (x+1)));
+			}
+			i = rawString.length();
+		}
+	}
+
+	//convert whole number portion
+	for(int x = 0; x <rawString.length(); x++){
+		if((x==0)&&((int)rawString[0] == 45)){
+			isNegative = true;
+		}
+		else{
+			temp = (int)rawString[x] - 48;
+			decodedDouble = decodedDouble + (temp * pow(10, (rawString.length() -1 -x)));
+		}
+	}
+	
+
+	//if negative, make negative
+	if(isNegative){
+		decodedDouble = -decodedDouble;
+	}
+
+	return decodedDouble;
+}
+
+string intToRegularBin(int value, int numOfBits){
+	string decoded = "";
+	//converts integer to desired number of binary bits
+	//TODO: Rachel, check can fit within desired number of bits
+	for(int i = value; decoded.length()<=(numOfBits -1); i = i/2){
+		if(i%2!=0){
+			decoded = "1" + decoded;
+		}
+		else{
+			decoded = "0" + decoded;
+		}
+	}
+	//converts to signed bit notation because Rachel was tired
+	//TODO: Rachel, make it 2's comp instead
+	if(value >=0){
+		decoded = "0" + decoded;
+	}
+	else{
+		decoded = "1" + decoded;
+	}
+	return decoded;
 }

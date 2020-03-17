@@ -1,5 +1,17 @@
-asdf asdf
-asdf
-
-asdf
-asdf
+-- This line is a comment (comments will 
+-- start with double dashesat any 
+-- point, empty spaces or TABs 
+-- are ignored before any arguments)
+-- Once a double dash is encountered, 
+-- no more code will follow on that line
+6   -- 6 lines of code
+-- Move R1, this line is ignored
+Fmul R0, R0, R1 -- R0 = R0 * R1
+Fadd R0, R0, R0 -- R0 = R0 + R0
+Fmul R1, R1, R2 -- R1 = R1 * R2
+-- Another random comment
+Fadd R1, R1, R0 -- R1 = R1 + R0
+Fmul R3, R0, R1 -- R3 = R0 * R1
+Halt
+0
+-- no memory accesses
