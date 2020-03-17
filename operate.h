@@ -63,6 +63,9 @@ void operate(string op, string registerFile[], string memoryFile[]){
         double val2 = binToDec( (MyFloat) registerFile[newR3] );        
         double ans = val1 + val2;
 
+        cout << "operate: Adding the following value to files R1: ";
+        cout << ans << endl;
+
         string val = decToBin( ans );
 
         registerFile[newR1] = val;

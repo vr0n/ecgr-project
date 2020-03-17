@@ -89,13 +89,13 @@ string decToBin(double tempDec){
 		return "Positive_Infinity";
 	}
 	
-//sign binary	
+    //sign binary	
 	if(tempDec<0){	
 	signBin = "1";
 		tempDec = abs(tempDec);
 	}
 	
-//mantissa binary
+    //mantissa binary
 	bool foundFirstOne = false;
 	int loopNum = 0;
 	int startingIndex = -1;
@@ -158,7 +158,7 @@ string decToBin(double tempDec){
 	//trim mantissa to fit 23 bits based on starting index of first "1"
 	mantBin = mantBin.substr(startingIndex, mantBin.length());
 
-//exponent binary
+    //exponent binary
 	//adjust exponent for bias
 	expInt = expInt + 127;
 	//calculate exponent in binary
