@@ -20,8 +20,6 @@ string addZeros(int numZeros){
 
 //combine into instruction depending on which instruction it is
 string oppToCode(string opp, string second, string third, string fourth){
-    cout << "execute: Entering oppToCode function. Fun times!" << endl;
-
 	string translated = "";
 	if(opp == "Set"){
 		translated = "00000";
@@ -163,8 +161,7 @@ string oppToCode(string opp, string second, string third, string fourth){
 		translated += addZeros(4+4+4+15);
 	}
     else {
-        cout << "execute: No oppCode found!" << endl;
-        cout << "execute: Exiting and Continuing!" << endl;
+        cout << "execute: No oppCode found! Exiting and continuing" << endl;
 
         return translated;
     }
@@ -178,12 +175,12 @@ string execute( string line ) {
 
     istringstream iss(line);
 
+    cout << "execute: Grabbing words from line" << endl;
+
     int i = 0;
     for( string line; iss >> line; ){
-        cout << "execute: Grabbing words from line" << endl;
-        
         if( line[0] == '-' ) {
-            continue;
+            break;
         }
 
         arr[i] = line;

@@ -26,7 +26,6 @@ void operate(string op, string registerFile[], string memoryFile[]){
     //ifstream memoryFile ("memoryFile");
 
     cout << "operate: Entered operate function" << endl;
-    cout << "operate: Files seeme to have opened correctly" << endl;
 
     string oppCode = op.substr(0, 5);
     string r1 = op.substr(5, 4);
@@ -60,13 +59,12 @@ void operate(string op, string registerFile[], string memoryFile[]){
         int newR2 = convBin( r2 );
         int newR3 = convBin( r3 );
 
-        //double val1 = binToDec( (MyFloat) newR2 );        
-        //double val2 = binToDec( (MyFloat) newR3 );        
-        double val1 = binToDec( newR2 );        
-        double val2 = binToDec( newR3 );        
+        double val1 = binToDec( (MyFloat) registerFile[newR2] );        
+        double val2 = binToDec( (MyFloat) registerFile[newR3] );        
         double ans = val1 + val2;
 
         string val = decToBin( ans );
+
         registerFile[newR1] = val;
 	}
     // Fsub instruction
@@ -106,6 +104,7 @@ void operate(string op, string registerFile[], string memoryFile[]){
         double ans = val1 * val2;
 
         string val = decToBin( ans );
+
         registerFile[newR1] = val;
 	}
     // Fdiv instruction

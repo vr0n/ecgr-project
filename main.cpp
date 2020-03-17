@@ -5,36 +5,52 @@
 
 using namespace std;
 
-ifstream registers("registerFile");
-ifstream memory("memoryFile");
-
 string registerFile[16];
 string memoryFile[4096];
 
+void readFiles() {
+    ifstream registers("registerFile");
+    ifstream memory("memoryFile");
+
+    int k = 0;
+    while ( !registers.eof() ) {
+        getline( registers, registerFile[k] );
+        k++;
+    }
+    registers.close();
+
+    k = 0;
+    while ( !memory.eof() ) {
+        getline( memory, memoryFile[k] );
+        k++;
+    }
+    memory.close();
+}
+
+void writeFiles() {
+    ofstream newRegisters;
+    ofstream newMemory;
+    newRegisters.open("registerFile");
+    newMemory.open("memoryFile");
+    int k = 0;
+
+    for ( k = 0; k < 16; k++ ){
+            newRegisters << registerFile[k] + "\n";
+    }
+    newRegisters.close();
+
+    for ( k = 0; k < 4096; k++ ){
+        newMemory << memoryFile[k] + "\n";
+    }
+    newMemory.close();
+}
+
 int main(){
-//    decToBin(8.345);
-//    binToDec((MyFloat) "01101101101100000011000011010111");
-//    operate("01101101101100000011000011010111");
     string instr[16];
     string reg;
     string mem;
 
-    for ( int i = 0; i < 16; i++ ){
-        while ( getline(registers, reg) ){
-            registerFile[i] = reg;
-        }
-    }
-
-    for ( int i = 0; i < 4096; i++ ){
-        while ( getline(memory, mem) ){
-            memoryFile[i] = mem;
-        }
-    }
-
-    cout << "test of register file" << endl;
-    cout << registerFile[4] << endl;
-    cout << "test of memory file" << endl;
-    cout << memoryFile[4] << endl;
+    readFiles();
 
     ifstream file("asm.txt");
     string assem;
@@ -59,7 +75,12 @@ int main(){
         if ( instr[j].empty() ) {
             continue;
         }
-        cout << "main: Calling execute with '" + instr[j] + "'" << endl;
+        cout << "\nmain: Calling execute with '" + instr[j] + "'" << endl;
+        if (instr[j] == "Halt" ){
+            cout << "main: Halting!" << endl;
+            writeFiles();
+            return 0;
+        }
         string binStr = execute(instr[j]);
         
         if ( binStr.empty() ) {
@@ -69,6 +90,8 @@ int main(){
         cout << "main: Calling operate with '"  + binStr + "'" << endl;
         operate(binStr, registerFile, memoryFile);
     }
+
+    writeFiles();
 
     return 0;
 }

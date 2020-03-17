@@ -42,8 +42,8 @@ class MyFloat{
 double binToDec(MyFloat tempFloat){
 	double dec = 0.0;
 	//check for zero
-	if(tempFloat.exp==0){
-		return 0;
+	if(tempFloat.exp==-127 && tempFloat.mant==1.0){
+		return 0.0;
 	}
 	//check for +inf, -inf, NaN
 	if(tempFloat.exp==255){
