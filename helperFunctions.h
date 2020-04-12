@@ -45,8 +45,8 @@ double binFloatToDecDouble(string rawBin){
 	}
    
 	//check for +inf, -inf, NaN
-	if(exp==255){
-		if(mant==0){
+	if(exp==128){
+		if(mant==1.0){
 			if(sign==0){
 				cout << "Positive_Infinity" <<endl;
 				return 1337;
