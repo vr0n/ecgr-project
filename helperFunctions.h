@@ -28,12 +28,8 @@ double binFloatToDecDouble(string rawBin){
 			exp = exp + pow(2, (8-i));
 		}
 	}
-	exp = exp - 127;
 
-	//check for zero
-	if(exp==0){
-		return 0;
-	}
+	exp = exp - 127;
 
 	//extract + adjust mantissa
 	for(int i = 9; i<32; i++){
@@ -43,6 +39,11 @@ double binFloatToDecDouble(string rawBin){
 	}
 	mant = mant + 1.0;
 
+	//check for zero
+	if(exp==-127 && mant==1.0){
+		return 0;
+	}
+   
 	//check for +inf, -inf, NaN
 	if(exp==255){
 		if(mant==0){
@@ -398,4 +399,14 @@ string alu_abs( string v1 ) {
     string ret = decDoubleToBinFloat(ans);
 
     return ret;
+}
+
+int main() {
+    string testVal = "01000000110000000000000000000000";
+
+    double deal = binFloatToDecDouble(testVal);
+
+    cout << deal << endl;
+
+    return 0;
 }
