@@ -301,3 +301,101 @@ int binUnsignedToDecInt( string op ) {
 
     return dec;
 }
+
+string alu_add( string v1, string v2 ) {
+    double val1 = binFloatToDecDouble( v1 );
+    double val2 = binFloatToDecDouble( v2 );
+
+    double ans = val1 + val2;
+
+    string ret = decDoubleToBinFloat(ans);
+
+    return ret;
+}
+
+string alu_subtract( string v1, string v2 ) {
+    double val1 = binFloatToDecDouble( v1 );
+    double val2 = binFloatToDecDouble( v2 );
+
+    double ans = val1 - val2;
+
+    string ret = decDoubleToBinFloat(ans);
+
+    return ret;
+}
+
+string alu_negate( string v1 ) {
+    string sign = v1.substr(0, 1);
+
+    if ( sign == "1" ) {
+        v1[0] = '0';
+    }
+
+    if ( sign == "0" ) {
+        v1[0] = '1';
+    }
+
+    return v1;
+}
+
+string alu_multiply( string v1, string v2 ) {
+    double val1 = binFloatToDecDouble( v1 );
+    double val2 = binFloatToDecDouble( v2 );
+
+    double ans = val1 * val2;
+
+    string ret = decDoubleToBinFloat(ans);
+
+    return ret;
+}
+
+string alu_divide( string v1, string v2 ) {
+    double val1 = binFloatToDecDouble( v1 );
+    double val2 = binFloatToDecDouble( v2 );
+
+    double ans = val1 / val2;
+
+    string ret = decDoubleToBinFloat(ans);
+
+    return ret;
+}
+
+string alu_floor( string v1 ) {
+    double val1 = binFloatToDecDouble( v1 );
+
+    double flr = floor(val1);
+
+    string ret = decDoubleToBinFloat(flr);
+
+    return ret;
+}
+
+string alu_ceiling( string v1 ) {
+    double val1 = binFloatToDecDouble( v1 );
+
+    double cl = ceil(val1);
+
+    string ret = decDoubleToBinFloat(cl);
+
+    return ret;
+}
+
+string alu_round( string v1 ) {
+    double val1 = binFloatToDecDouble( v1 );
+
+    double rnd = round(val1);
+
+    string ret = decDoubleToBinFloat(rnd);
+
+    return ret;
+}
+
+string alu_abs( string v1 ) {
+    double val1 = binFloatToDecDouble( v1 );
+
+    double ans = abs(val1);
+
+    string ret = decDoubleToBinFloat(ans);
+
+    return ret;
+}
