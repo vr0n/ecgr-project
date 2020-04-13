@@ -304,6 +304,19 @@ int binUnsignedToDecInt( string op ) {
 }
 
 int[11] control_signals( string op ) {
+    // Map the signals as follows:
+    // 0  - Source 2 Selecion
+    // 1  - Write to Register
+    // 2  - ALU Source
+    // 3  - ALU Controller
+    // 4  - Is A Branch
+    // 5  - Is A Zero Branch
+    // 6  - Unconditional Branch
+    // 7  - Memory Address Source
+    // 8  - Read Memory
+    // 9  - Write Memory
+    // 10 - Dest Reg Data Src 1
+    // 11 - Dest Reg Data Src 2
     int[11] sigs = [0,0,0,0,0,0,0,0,0,0,0];
 
     if ( op == "00000" ) {
