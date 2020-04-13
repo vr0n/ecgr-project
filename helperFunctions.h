@@ -303,7 +303,7 @@ int binUnsignedToDecInt( string op ) {
     return dec;
 }
 
-int[11] control_signals( string op ) {
+int[] control_signals( string op ) {
     // Map the signals as follows:
     // 0  - Source 2 Selecion
     // 1  - Write to Register
@@ -317,74 +317,103 @@ int[11] control_signals( string op ) {
     // 9  - Write Memory
     // 10 - Dest Reg Data Src 1
     // 11 - Dest Reg Data Src 2
-    int[11] sigs = [0,0,0,0,0,0,0,0,0,0,0];
+    int[12] sigs = [0,0,0,0,0,0,0,0,0,0,0,0];
 
+    // set instr
     if ( op == "00000" ) {
-        sig[] = ;
+        sig[1] = 1;
+        sig[2] = 1;
+        sig[3] = 1;
     }
+    // load instr
     else if ( op == "00001" ) {
-        sig[] = ;
+        sig[1] = 1;
     }
+    // store instr
     else if ( op == "00010" ) {
-        sig[] = ;
+        sig[1] = 1;
     }
+    // mov instr
     else if ( op == "00011" ) {
-        sig[] = ;
+        sig[1] = 1;
     }
+    // add instr
     else if ( op == "00100" ) {
-        sig[] = ;
+        sig[1] = 1;
+        sig[2] = 1;
+        sig[3] = 1;
     }
+    // sub instr
     else if ( op == "00101" ) {
-        sig[] = ;
+        sig[1] = 1;
+        sig[2] = 1;
+        sig[3] = 1;
     }
+    // negate instr
     else if ( op == "00110" ) {
-        sig[] = ;
+        sig[1] = 1;
     }
+    // multiply instr
     else if ( op == "00111" ) {
-        sig[] = ;
+        sig[1] = 1;
     }
+    // divide instr
     else if ( op == "01000" ) {
-        sig[] = ;
+        sig[1] = 1;
     }
+    // floor instr
     else if ( op == "01001" ) {
-        sig[] = ;
+        sig[1] = 1;
     }
+    // ceil instr
     else if ( op == "01010" ) {
-        sig[] = ;
+        sig[1] = 1;
     }
+    // round instr
     else if ( op == "01011" ) {
-        sig[] = ;
+        sig[1] = 1;
     }
+    // abs instr
     else if ( op == "01100" ) {
-        sig[] = ;
+        sig[1] = 1;
     }
+    // min instr
     else if ( op == "01101" ) {
         sig[] = ;
     }
+    // max instr
     else if ( op == "01110" ) {
         sig[] = ;
     }
+    // power instr
     else if ( op == "01111" ) {
         sig[] = ;
     }
+    // exp instr
     else if ( op == "10000" ) {
         sig[] = ;
     }
+    // square root instr
     else if ( op == "10001" ) {
         sig[] = ;
     }
+    // branch uncon instr
     else if ( op == "10010" ) {
         sig[] = ;
     }
+    // branch zero instr
     else if ( op == "10011" ) {
         sig[] = ;
     }
+    // branch neg instr
     else if ( op == "10100" ) {
         sig[] = ;
     }
+    // nop instr
     else if ( op == "10101" ) {
         sig[] = ;
     }
+    // halt instr
     else if ( op == "10110" ) {
         sig[] = ;
     }
