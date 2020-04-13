@@ -303,6 +303,80 @@ int binUnsignedToDecInt( string op ) {
     return dec;
 }
 
+int[11] control_signals( string op ) {
+    int[11] sigs = [0,0,0,0,0,0,0,0,0,0,0];
+
+    if ( op == "00000" ) {
+        sig[] = ;
+    }
+    else if ( op == "00001" ) {
+        sig[] = ;
+    }
+    else if ( op == "00010" ) {
+        sig[] = ;
+    }
+    else if ( op == "00011" ) {
+        sig[] = ;
+    }
+    else if ( op == "00100" ) {
+        sig[] = ;
+    }
+    else if ( op == "00101" ) {
+        sig[] = ;
+    }
+    else if ( op == "00110" ) {
+        sig[] = ;
+    }
+    else if ( op == "00111" ) {
+        sig[] = ;
+    }
+    else if ( op == "01000" ) {
+        sig[] = ;
+    }
+    else if ( op == "01001" ) {
+        sig[] = ;
+    }
+    else if ( op == "01010" ) {
+        sig[] = ;
+    }
+    else if ( op == "01011" ) {
+        sig[] = ;
+    }
+    else if ( op == "01100" ) {
+        sig[] = ;
+    }
+    else if ( op == "01101" ) {
+        sig[] = ;
+    }
+    else if ( op == "01110" ) {
+        sig[] = ;
+    }
+    else if ( op == "01111" ) {
+        sig[] = ;
+    }
+    else if ( op == "10000" ) {
+        sig[] = ;
+    }
+    else if ( op == "10001" ) {
+        sig[] = ;
+    }
+    else if ( op == "10010" ) {
+        sig[] = ;
+    }
+    else if ( op == "10011" ) {
+        sig[] = ;
+    }
+    else if ( op == "10100" ) {
+        sig[] = ;
+    }
+    else if ( op == "10101" ) {
+        sig[] = ;
+    }
+    else if ( op == "10110" ) {
+        sig[] = ;
+    }
+}
+
 string alu_add( string v1, string v2 ) {
     double val1 = binFloatToDecDouble( v1 );
     double val2 = binFloatToDecDouble( v2 );
