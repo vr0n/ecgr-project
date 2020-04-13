@@ -303,7 +303,7 @@ int binUnsignedToDecInt( string op ) {
     return dec;
 }
 
-int[] control_signals( string op ) {
+int control_signals( string op ) {
     // Map the signals as follows:
     // 0  - Source 2 Selecion
     // 1  - Write to Register
@@ -317,106 +317,136 @@ int[] control_signals( string op ) {
     // 9  - Write Memory
     // 10 - Dest Reg Data Src 1
     // 11 - Dest Reg Data Src 2
-    int[12] sigs = [0,0,0,0,0,0,0,0,0,0,0,0];
+    int sigs[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
 
     // set instr
     if ( op == "00000" ) {
-        sig[1] = 1;
-        sig[2] = 1;
-        sig[3] = 1;
+        sigs[1] = 1;
+        sigs[2] = 1;
+        sigs[3] = 1;
     }
     // load instr
     else if ( op == "00001" ) {
-        sig[1] = 1;
+        sigs[1] = 1;
     }
     // store instr
     else if ( op == "00010" ) {
-        sig[1] = 1;
+        sigs[1] = 1;
     }
     // mov instr
     else if ( op == "00011" ) {
-        sig[1] = 1;
+        sigs[1] = 1;
     }
     // add instr
     else if ( op == "00100" ) {
-        sig[1] = 1;
-        sig[2] = 1;
-        sig[3] = 1;
+        sigs[1] = 1;
+        sigs[2] = 1;
+        sigs[3] = 1;
     }
     // sub instr
     else if ( op == "00101" ) {
-        sig[1] = 1;
-        sig[2] = 1;
-        sig[3] = 1;
+        sigs[1] = 1;
+        sigs[2] = 1;
+        sigs[3] = 1;
     }
     // negate instr
     else if ( op == "00110" ) {
-        sig[1] = 1;
+        sigs[1] = 1;
     }
     // multiply instr
     else if ( op == "00111" ) {
-        sig[1] = 1;
+        sigs[1] = 1;
     }
     // divide instr
     else if ( op == "01000" ) {
-        sig[1] = 1;
+        sigs[1] = 1;
     }
     // floor instr
     else if ( op == "01001" ) {
-        sig[1] = 1;
+        sigs[1] = 1;
     }
     // ceil instr
     else if ( op == "01010" ) {
-        sig[1] = 1;
+        sigs[1] = 1;
     }
     // round instr
     else if ( op == "01011" ) {
-        sig[1] = 1;
+        sigs[1] = 1;
     }
     // abs instr
     else if ( op == "01100" ) {
-        sig[1] = 1;
+        sigs[1] = 1;
     }
     // min instr
     else if ( op == "01101" ) {
-        sig[] = ;
+        sigs[1] = 1;
     }
     // max instr
     else if ( op == "01110" ) {
-        sig[] = ;
+        sigs[1] = 1;
     }
     // power instr
     else if ( op == "01111" ) {
-        sig[] = ;
+        sigs[1] = 1;
+        sigs[3] = 1;
     }
     // exp instr
     else if ( op == "10000" ) {
-        sig[] = ;
+        sigs[1] = 1;
     }
     // square root instr
     else if ( op == "10001" ) {
-        sig[] = ;
+        sigs[1] = 1;
     }
     // branch uncon instr
     else if ( op == "10010" ) {
-        sig[] = ;
+        //CURRENTLY NON-OPERATIONAL
     }
     // branch zero instr
     else if ( op == "10011" ) {
-        sig[] = ;
+        sigs[5] = 1;
     }
     // branch neg instr
     else if ( op == "10100" ) {
-        sig[] = ;
+        sigs[4] = 1;
     }
     // nop instr
     else if ( op == "10101" ) {
-        sig[] = ;
+        //don't care on NOP
     }
     // halt instr
     else if ( op == "10110" ) {
-        sig[] = ;
+        //don't care on HALT
     }
+
+    // code to put array variables in bool variables in our naming convention
+    //bool ctrl_0;
+    //bool ctrl_1;
+    //bool ctrl_2;
+    //bool ctrl_3;
+    //bool ctrl_4;
+    //bool ctrl_5;
+    //bool ctrl_6;
+    //bool ctrl_7;
+    //bool ctrl_8;
+    //bool ctrl_9;
+    //bool ctrl_10;
+    //bool ctrl_11;
+
+    //ctrl_0 = (bool) sig[0];
+    //ctrl_1 = (bool) sig[1];
+    //ctrl_2 = (bool) sig[2];
+    //ctrl_3 = (bool) sig[3];
+    //ctrl_4 = (bool) sig[4];
+    //ctrl_5 = (bool) sig[5];
+    //ctrl_6 = (bool) sig[6];
+    //ctrl_7 = (bool) sig[7];
+    //ctrl_8 = (bool) sig[8];
+    //ctrl_9 = (bool) sig[9];
+    //ctrl_10 = (bool) sig[10];
+    //ctrl_11 = (bool) sig[11];
+
+    return *sigs;
 }
 
 string alu_add( string v1, string v2 ) {
