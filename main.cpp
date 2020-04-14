@@ -54,7 +54,7 @@ int main(){
 
     readFiles();
 
-    ifstream file("asm.txt");
+    ifstream file("test_files/isa_test0.txt");
     string assem;
     int i = 0;
 

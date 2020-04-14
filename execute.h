@@ -21,115 +21,115 @@ string addZeros(int numZeros){
 //combine into instruction depending on which instruction it is
 string oppToCode(string opp, string second, string third, string fourth){
 	string translated = "";
-	if(opp == "Set"){
+	if(opp == "SET"){
 		translated = "00000";
 		translated += decodeRegister(second);
 		translated += addZeros((4+4+15));
 	}
-	else if(opp == "Load"){
+	else if(opp == "LOAD"){
 		translated = "00001";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += addZeros((4+15));
 	}
-	else if(opp == "Store"){
+	else if(opp == "STORE"){
 		translated = "00010";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += addZeros((4+15));
 	}
-	else if(opp == "Move"){
+	else if(opp == "MOVE"){
 		translated = "00011";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += addZeros((4+15));
 	}
-	else if(opp == "Fadd"){
+	else if(opp == "FADD"){
 		translated = "00100";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += decodeRegister(fourth);
 		translated += addZeros(15);
 	}
-	else if(opp == "Fsub"){
+	else if(opp == "FSUB"){
 		translated = "00101";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += decodeRegister(fourth);
 		translated += addZeros(15);
 	}
-	else if(opp == "Fneg"){
+	else if(opp == "FNEG"){
 		translated = "00110";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += addZeros((4+15));
 	}
-	else if(opp == "Fmul"){
+	else if(opp == "FMUL"){
 		translated = "00111";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += decodeRegister(fourth);
 		translated += addZeros(15);
 	}
-	else if(opp == "Fdiv"){
+	else if(opp == "FDIV"){
 		translated = "01000";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += decodeRegister(fourth);
 		translated += addZeros(15);
 	}
-	else if(opp == "Floor"){
+	else if(opp == "FLOOR"){
 		translated = "01001";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += addZeros(4+15);
 	}
-	else if(opp == "Ceil"){
+	else if(opp == "CEIL"){
 		translated = "01010";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += addZeros(4+15);
 	}
-	else if(opp == "Round"){
+	else if(opp == "ROUND"){
 		translated = "01011";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += addZeros(4+15);
 	}
-	else if(opp == "Fabs"){
+	else if(opp == "FABS"){
 		translated = "01100";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += addZeros(4+15);
 	}
-	else if(opp == "Min"){
+	else if(opp == "MIN"){
 		translated = "01101";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += decodeRegister(fourth);
 		translated += addZeros(15);
 	}
-	else if(opp == "Max"){
+	else if(opp == "MAX"){
 		translated = "01110";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += decodeRegister(fourth);
 		translated += addZeros(15);
 	}
-	else if(opp == "Pow"){
+	else if(opp == "POW"){
 		translated = "01111";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += addZeros(4);
 		translated += intToRegularBin((int)stringToDouble(fourth), 15);
 	}
-	else if(opp == "Exp"){
+	else if(opp == "EXP"){
 		translated = "10000";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
 		translated += addZeros(4+15);
 	}
-	else if(opp == "Sqrt"){
+	else if(opp == "SQRT"){
 		translated = "10001";
 		translated += decodeRegister(second);
 		translated += decodeRegister(third);
@@ -152,11 +152,11 @@ string oppToCode(string opp, string second, string third, string fourth){
 		translated += addZeros(4+4);
 		translated += intToRegularBin((int)stringToDouble(third), 15);
 	}
-	else if(opp == "Nop"){
+	else if(opp == "NOP"){
 		translated = "10101";
 		translated += addZeros(4+4+4+15);
 	}
-	else if(opp == "Halt"){
+	else if(opp == "HALT"){
 		translated = "10110";
 		translated += addZeros(4+4+4+15);
 	}
