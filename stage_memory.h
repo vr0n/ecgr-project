@@ -14,7 +14,7 @@ string mux14(string opt1, string opt2, string ctrl){
 
 string readMem(string address, string memory[4096]){
   string read = "";
-  int index = (binUnsignedToDecInt(address)*4);
+  int index = (binUnsignedToDecInt(address));
   for(int x = index; x < (index + 4); x++){
     read = read + memory[x];
   }

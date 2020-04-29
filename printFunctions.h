@@ -27,6 +27,9 @@ void printRegisters(string registers[16]){
 }
 
 void printMemory(string memory[4096], int cutoff){
+  if(cutoff > 4096){
+    cutoff = 4096;
+  }
   cout << "/////////////////////////// MEMORY ///////////////////////////" << endl;
   string memData = "00000000000000000000000000000000";
   for(int i = 0; i<cutoff; i += 4){
@@ -53,6 +56,17 @@ void printReg(string p1_reg[5][20]){
   for(int y = 0; y < 5; y++){
     for(int x = 0; x < 20; x++){
       cout << "[" << reverseReg[x][y] << "] ~ ";
+    }
+    cout << endl;
+  }
+  cout << endl;
+}
+
+void printProcMap(int regMap[3][5]){
+  cout << "///////////////// PROCESS REGISTERS MAP ///////////////////////" << endl;
+  for(int y = 0; y<5; y++){
+    for(int x = 0; x<3; x++){
+      cout << regMap[x][y] << " ";
     }
     cout << endl;
   }

@@ -36,7 +36,7 @@ int main(){
 	// CHANGE TEST FILE LOCATION HERE ////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////////////
 	
-	instructionsFile.open("/home/cherry/Downloads/ecgr-project/test_files/isa_test5.txt", ios::out); //this is the line to change
+	instructionsFile.open("/home/cherry/Downloads/ecgr-project/test_files/isa_test6.txt", ios::out); //this is the line to change
 	string line;
 	vector<string> rawInstructionsList;
 	if(instructionsFile.is_open()){
@@ -149,8 +149,8 @@ int main(){
 	//////////////////////////////////////////////////////////////////////
 	
 	int scheduleSize = instructionMemory.size();
-	//executeUnpip(registers, memory, instructionMemory, (scheduleSizeUnpip*5), p1_reg); // this is the line to comment/ uncomment
-	executePip(registers, memory, instructionMemory, scheduleSize, p1_reg, p2_reg, p3_reg, p4_reg, p5_reg); //this is the other line to comment/ uncomment
+	executeUnpip(registers, memory, instructionMemory, (scheduleSize*5), p1_reg); // this is the line to comment/ uncomment
+	//executePip(registers, memory, instructionMemory, scheduleSize, p1_reg, p2_reg, p3_reg, p4_reg, p5_reg); //this is the other line to comment/ uncomment
 	return 0;
 }
 	

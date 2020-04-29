@@ -326,3 +326,29 @@ int binSignedToDecInt(string binSigned){
   }
   return decodedInt;
 }
+
+//returns the adjusted instruction memory index accounting for SET inserts
+int instrLineAdjust(int realLine, string setPattern){
+  int tempLine = 0;
+  for(int i = 0; i<setPattern.length(); i++){
+    if(((int)setPattern[i]-48) == 0){
+      if(tempLine == realLine){
+	realLine = i;
+	i = setPattern.length();
+      }
+      tempLine ++;
+    }
+  }
+  return realLine;
+}
+
+//returns number of SET ops given the SET pattern string
+int numSetOps(string setPattern){
+  int c = 0;
+  for(int i = 0; i<setPattern.length(); i++){
+    if((int)setPattern[i] == 49){
+      c ++;
+    }
+  }
+  return c;
+}

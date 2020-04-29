@@ -87,6 +87,7 @@ void executeUnpip(string registers[16], string memory[4096], vector<string> inst
 	  //printReg(p1_reg);
 	}
 	else if(stageNum == 2){
+	  p1_reg[0][19] = "0"; //is unpip
 	  run_decode(registers, p1_reg);
 	  cout << "DECODE" << endl;
 	  //printReg(p1_reg);

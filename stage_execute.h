@@ -401,16 +401,7 @@ void run_execute(string p1_reg[5][20]){
   //adjust jump value for SET gaps
   int realJump = binUnsignedToDecInt(p1_reg[2][1]);
   string setPattern = p1_reg[0][2];
-  int tempJump = 0;
-  for(int i = 0; i<setPattern.length(); i++){
-    if(((int)setPattern[i]-48) == 0){
-      if(tempJump == realJump){
-	realJump = i;
-	i = setPattern.length();
-      }
-      tempJump ++;
-    }
-  }
+  realJump = instrLineAdjust(realJump, setPattern);
 
   p1_reg[2][1] = decIntToBinUnsigned(realJump, 8); // adjust jump value to account for SET opperations
   
